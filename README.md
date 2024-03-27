@@ -1,16 +1,15 @@
-[![CircleCI](https://img.shields.io/circleci/build/github/a6b8/tapAuthRedeem/main)]() ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+[![CircleCI](https://img.shields.io/circleci/build/github/a6b8/tapAuthRedeem/main)]()
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 # TapAuthRedeem
-Diese Class ist eine abgewandelte Implemeniteurng von https://github.com/Trac-Systems/tap-protocol-token-auth-boilerplate. Und hilft um `auth` und `redeem` structs zu erstellen.  
+This class is a modified implementation of https://github.com/Trac-Systems/tap-protocol-token-auth-boilerplate. It helps to create `auth` and `redeem` structs.
 
 ## Features:
-- Generiert ein `auth` struct
-- Generiert ein `redeem` struct
-
+- Generates an `auth` struct
+- Generates a `redeem` struct
 
 ## Quickstart
-Dieses Beispiel erstellt einen `auth` structure.
-
+This example creates an `auth` structure.
 
 ### Code
 ```js
@@ -29,7 +28,6 @@ const authResult = await tapAuth.generate( {
 } )
 ```
 
-
 ## Table of Contents
 - [TapAuthRedeem](#tapauthredeem)
   - [Features:](#features)
@@ -43,10 +41,9 @@ const authResult = await tapAuth.generate( {
     - [generate()](#generate)
   - [License](#license)
 
-
 ## Methods
 
-Folgende Methoden sind verfügbar:
+The following methods are available:
 
 ### constructor()
 
@@ -55,9 +52,9 @@ Folgende Methoden sind verfügbar:
 constructor( silent=false )
 ```
 
-| Key                | Type     | Description                                       | Required |
-|--------------------|----------|---------------------------------------------------|----------|
-| silent        | boolean    | Mit diesem Parameter können terminal logs unterdrückt werden. | No      |
+| Key          | Type     | Description                                      | Required |
+|--------------|----------|--------------------------------------------------|----------|
+| silent       | boolean  | This parameter allows suppressing terminal logs. | No       |
 
 
 **Example**
@@ -73,22 +70,22 @@ true
 
 ### setPair()
 
-Diese Methode setzt den Public und Private Key. Falls ein leerres Object `{}` übermittelt wird, ein Example Pair erstellt. Dieses ist über `.getPair()` abfragbar.
+This method sets the public and private key. If an empty object `{}` is passed, an example pair is created, which can be retrieved using `.getPair()`.
 
 **Method**
 ```js
 .setPair( { publicKey, privateKey } )
 ```
 
-| Key                | Type     | Description                                       | Required |
-|--------------------|----------|---------------------------------------------------|----------|
-| publicKey        | string    | Dieser String muss 66 Zeichen lang sein und mit `02` beginnen | No      |
-| publicKey        | string    | Dieser String muss 64 Zeichen lang sein  | No      |
+| Key          | Type     | Description                                      | Required |
+|--------------|----------|--------------------------------------------------|----------|
+| publicKey    | string   | This string must be 66 characters long and start with `02`. | No       |
+| privateKey   | string   | This string must be 64 characters long.           | No       |
 
 
 **Example**
 
-Diese Beispiel erstellt ein public/private Key Pair.
+This example creates a public/private key pair.
 ```js
 import { TapAuthRedeem } from "../src/TapAuthRedeem.mjs"
 const tapAuth = new TapAuthRedeem()
@@ -103,7 +100,7 @@ true
 
 ### getPair()
 
-Dieses Methode gibt den derzeiten public/private Key Pair zürck, der über `.setPair()` gesetzt wurde.
+This method returns the current public/private key pair set by `.setPair()`.
 
 **Method**
 ```js
@@ -124,18 +121,19 @@ true
 ```
 
 ### generate()
-Mit dieser Methode wird der eigentliche Struct erstellt. Um diese Methode durchzuführen muss vorher `.setPair()` ausgeführt worden sein.
+
+This method creates the actual struct. To perform this method, `.setPair()` must have been executed beforehand.
 
 **Method**
 ```js
 async generate( { messageKey, message, salt } )
 ```
 
-| Key                | Type     | Description                                       | Required |
-|--------------------|----------|---------------------------------------------------|----------|
-| messageKey        | string    | Dieser string muss entweder `auth` oder `reddem` sein  | Yes      |
-| message        | object    | Hier wird die eigentliche message übergeben  | Yes      |
-| salt        | string    | Hier kann ein salt übergeben werden.   | No     |
+| Key          | Type     | Description                                   | Required |
+|--------------|----------|-----------------------------------------------|----------|
+| messageKey   | string   | This string must be either `auth` or `reddem`.| Yes      |
+| message      | object   | This is where the actual message is passed.  | Yes      |
+| salt         | string   | This is where a salt can be passed.          | No       |
 
 **Example**
 ```js
@@ -157,3 +155,4 @@ const authResult = await tapAuth.generate( {
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
