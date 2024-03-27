@@ -1,9 +1,8 @@
 import * as secp from '@noble/secp256k1'
 import secp256k1 from 'secp256k1'
 import { createHash } from 'node:crypto'
-import { printMessages } from './helpers/mixed.mjs'
-import { type } from 'node:os'
 
+import { printMessages } from './helpers/mixed.mjs'
 import { config } from './data/config.mjs'
 
 
